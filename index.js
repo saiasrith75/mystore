@@ -1,4 +1,3 @@
-
 const products = [
   { id: 1, name: "P1", price: 25 },
   { id: 2, name: "P2", price: 45 },
@@ -6,11 +5,7 @@ const products = [
 ];
 const cart = {};
 const addToCart = (id) => {
-  // const score = {};
-  // score["maths"] = 95;
-  // score["maths"] = score["maths"] + 2
-  // console.log(score);
-  cart[id] = 1;
+  if (!cart[id]) cart[id] = 1;
   showCart();
 };
 const increment = (id) => {
@@ -36,12 +31,12 @@ const showCart = () => {
   products.map((value) => {
     if (cart[value.id]) {
       str += `
-      <li>${value.name}-$${value.price}-<button onclick='decrement(${
+        <li>${value.name}-$${value.price}-<button onclick='decrement(${
         value.id
       })'>-</button>${cart[value.id]}<button onclick='increment(${
         value.id
       })'>+</button>-$${value.price * cart[value.id]}</li>
-      `;
+        `;
     }
   });
   divCart.innerHTML = str;
@@ -50,17 +45,18 @@ const showCart = () => {
   showTotal();
 };
 const displayCart = () => {
-  divCartBlock.style.display = "block"
-}
+  divCartBlock.style.left = "70%"
+
+};
 const hideCart = () => {
-   divCartBlock.style.display = "none"
-}
+  divCartBlock.style.left = "100%"
+};
 const showProducts = () => {
   let str = "";
   products.map((value) => {
     str += `
-    <li>${value.id}-${value.name}-${value.price}-<button onclick=addToCart(${value.id})>Add to Cart</button></li>
-    `;
+      <li>${value.id}-${value.name}-${value.price}-<button onclick=addToCart(${value.id})>Add to Cart</button></li>
+      `;
   });
   divProducts.innerHTML = str;
 };
