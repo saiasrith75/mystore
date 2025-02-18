@@ -6,12 +6,12 @@
   }
   .header {
       padding: 10px;
-      background-color:blue;
+      background-color:pink;
       display: flex;
       justify-content: space-between;
   }
   .productBlock{
-      background-color: gold;
+      background-color: silver;
   }
   .row {
       display: flex;
@@ -60,4 +60,9 @@
   .registration input,button{
       margin: 10px;
       padding: 10px;
+  }
+  
+  .menu li {
+      display: inline-block;
+      padding: 5px;
   }
